@@ -1,0 +1,160 @@
+{
+    "version": "1.0",
+    "rules": {
+        "structure_constraints": {
+            "experience": {
+                "max_entries": 3,
+                "bullet_points_per_entry": 3,
+                "bullet_point_max_length": 160,
+                "max_new_bullet_points_per_entry": 1
+            },
+            "projects": {
+                "max_entries": 1,
+                "bullet_points_range": [2, 4],
+                "bullet_point_max_length": 160
+            }
+        },
+        "modification_rules": {
+            "experience": {
+                "allowed_changes": [
+                    "replace_one_bullet_point_per_entry",
+                    "bullet_point_content"
+                ],
+                "forbidden_changes": [
+                    "add_entries",
+                    "remove_entries",
+                    "change_bullet_point_count",
+                    "add_new_bullet_points",
+                    "modify_existing_entries"
+                ],
+                "replacement_strategy": {
+                    "identify_least_relevant": true,
+                    "preserve_original_structure": true
+                }
+            },
+            "projects": {
+                "allowed_changes": [
+                    "complete_project_rewrite",
+                    "technology_stack",
+                    "bullet_point_content",
+                    "project_replacement"
+                ],
+                "forbidden_changes": [
+                    "add_projects",
+                    "remove_projects",
+                    "change_bullet_point_count"
+                ]
+            },
+            "skills": {
+                "allowed_changes": [
+                    "add_skills",
+                    "remove_skills",
+                    "reorder_skills"
+                ],
+                "forbidden_changes": [
+                    "change_skill_categories"
+                ]
+            }
+        },
+        "bullet_point_format": {
+            "required_elements": [
+                "technology_tools",
+                "specific_function",
+                "technical_implementation",
+                "quantified_result"
+            ],
+            "format": "Used {technology_tools} to {specific_function} by {technical_implementation}, resulting in {quantified_result}",
+            "style_guide": {
+                "be_specific": true,
+                "include_technical_details": true,
+                "use_metrics": true,
+                "avoid_generic_statements": true,
+                "function_description": {
+                    "required": true,
+                    "format": "specific action + specific problem/feature"
+                },
+                "technical_implementation": {
+                    "required": true,
+                    "format": "specific technical approach + specific solution"
+                }
+            },
+            "verb_usage": {
+                "avoid": [
+                    "work",
+                    "build",
+                    "balanced",
+                    "monitored",
+                    "modernized"
+                ],
+                "neutral": [
+                    "completed",
+                    "improved",
+                    "created",
+                    "balanced",
+                    "developed",
+                    "designed",
+                    "rewrite"
+                ],
+                "preferred": [
+                    "independently developed",
+                    "proactively engaged",
+                    "quickly familiarized",
+                    "successfully improved",
+                    "successfully developed",
+                    "refactored",
+                    "drove",
+                    "led",
+                    "mentored",
+                    "managed",
+                    "initiated",
+                    "established",
+                    "founded",
+                    "enhanced",
+                    "delivered"
+                ],
+                "usage_rules": {
+                    "leadership_verbs": ["drove", "led", "mentored", "managed"],
+                    "initiative_verbs": ["initiated", "established", "founded", "proactively engaged"],
+                    "learning_verbs": ["quickly familiarized", "successfully developed"],
+                    "improvement_verbs": ["enhanced", "refactored", "successfully improved"]
+                }
+            }
+        },
+        "career_persona": {
+            "role": "recent_graduate",
+            "traits": [
+                "enthusiastic",
+                "proactive",
+                "quick_learner",
+                "tech_savvy"
+            ],
+            "emphasis": [
+                "passion_for_technology",
+                "eagerness_to_learn",
+                "project_driven",
+                "industry_interest"
+            ],
+            "tone": {
+                "experience": "learning_and_growth",
+                "projects": "innovation_and_impact",
+                "skills": "current_and_relevant"
+            },
+            "content_guidelines": {
+                "highlight_learning": true,
+                "show_initiative": true,
+                "demonstrate_adaptability": true,
+                "emphasize_technical_growth": true
+            }
+        },
+        "ats_optimization": {
+            "hard_skills": {
+                "required_matching": true,
+                "match_threshold": 1.0
+            },
+            "soft_skills": {
+                "required_matching": false,
+                "preferred_location": "experience_bullet_points"
+            }
+        }
+    }
+} 
