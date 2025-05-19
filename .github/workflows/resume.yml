@@ -39,6 +39,7 @@ jobs:
           pip install requests python-dotenv
 
       - name: Get Release Asset URL
+        if: startsWith(github.ref, 'refs/tags/')
         id: get_url
         run: |
           gh auth login --with-token < <(echo ${{ secrets.GITHUB_TOKEN }})
@@ -46,6 +47,7 @@ jobs:
           echo "ASSET_URL=$ASSET_URL" >> $GITHUB_ENV
 
       - name: Sync PDF link to Notion
+        if: startsWith(github.ref, 'refs/tags/')
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
