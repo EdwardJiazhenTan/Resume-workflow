@@ -1,0 +1,50 @@
+name: Build, Release, and Sync Resume PDF
+
+on:
+  push:
+    branches:
+      - "frontend/*"
+      - "backend/*"
+      - "fullstack/*"
+
+jobs:
+  build-release-notion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build PDF with Docker
+        run: |
+          ./build.sh
+
+      - name: Create GitHub Release and Upload PDF
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "Resume for ${{ github.ref_name }}"
+          files: build/resume.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install GitHub CLI and Python deps
+        run: |
+          sudo apt-get update && sudo apt-get install -y gh
+          pip install requests python-dotenv
+
+      - name: Get Release Asset URL
+        id: get_url
+        run: |
+          gh auth login --with-token < <(echo ${{ secrets.GITHUB_TOKEN }})
+          ASSET_URL=$(gh release view ${{ github.ref_name }} --json assets -q '.assets[0].url')
+          echo "ASSET_URL=$ASSET_URL" >> $GITHUB_ENV
+
+      - name: Sync PDF link to Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: |
+          python notion_sync.py $(echo ${{ github.ref_name }} | cut -d'/' -f1) $(echo ${{ github.ref_name }} | cut -d'/' -f2) $ASSET_URL

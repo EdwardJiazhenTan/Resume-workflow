@@ -11,9 +11,6 @@
 *.dvi
 *.pdf
 
-# Build directory
-build/
-
 # macOS system files
 .DS_Store
 .AppleDouble

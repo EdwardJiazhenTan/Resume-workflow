@@ -1,5 +1,5 @@
 {
-    "version": "1.0",
+    "version": "1.1",
     "rules": {
         "structure_constraints": {
             "experience": {
@@ -10,8 +10,8 @@
             },
             "projects": {
                 "max_entries": 1,
-                "bullet_points_range": [2, 4],
-                "bullet_point_max_length": 160
+                "bullet_points_range": [2, 3],
+                "bullet_point_max_length": 140
             }
         },
         "modification_rules": {
@@ -76,6 +76,10 @@
                 "technical_implementation": {
                     "required": true,
                     "format": "specific technical approach + specific solution"
+                },
+                "formatting": {
+                    "tech_stacks": "bold",
+                    "impact_metrics": "bold"
                 }
             },
             "verb_usage": {
