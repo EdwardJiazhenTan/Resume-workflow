@@ -6,6 +6,8 @@ on:
       - "frontend/*"
       - "backend/*"
       - "fullstack/*"
+    tags:
+      - "*"
 
 jobs:
   build-release-notion:
@@ -22,6 +24,7 @@ jobs:
           ./build.sh
 
       - name: Create GitHub Release and Upload PDF
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref_name }}
@@ -48,3 +51,6 @@ jobs:
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: |
           python notion_sync.py $(echo ${{ github.ref_name }} | cut -d'/' -f1) $(echo ${{ github.ref_name }} | cut -d'/' -f2) $ASSET_URL
+
+permissions:
+  contents: write
