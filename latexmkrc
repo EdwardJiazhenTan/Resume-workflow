@@ -13,5 +13,4 @@ $cleanup_includes_cusdep_generated = 1;
 $cleanup_includes_generated = 1;
 
 # Build process
-$preview_continuous_mode = 1;
-$pdf_previewer = 'open -a Preview'; 
+$pdf_previewer = 'none';

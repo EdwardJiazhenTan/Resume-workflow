@@ -3,18 +3,18 @@ FROM ubuntu:22.04
 # Prevent interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install LaTeX and required packages
+# Install minimal LaTeX packages needed for resume
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    texlive-full \
+    texlive-base \
+    texlive-latex-recommended \
+    texlive-fonts-recommended \
     texlive-latex-extra \
     texlive-fonts-extra \
-    texlive-science \
-    texlive-pictures \
     texlive-xetex \
-    texlive-publishers \
-    texlive-lang-english \
-    texlive-lang-chinese \
+    lmodern \
+    latexmk \
+    make \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -24,5 +24,5 @@ WORKDIR /resume
 # Copy resume files
 COPY . .
 
-# Default command
-CMD ["pdflatex", "-output-directory=build", "src/resume.tex"] 
+# Default command - using latexmk for more efficient compilation
+CMD ["latexmk", "-pdf", "-output-directory=build", "src/resume.tex"] 

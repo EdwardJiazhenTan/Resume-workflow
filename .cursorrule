@@ -1,0 +1,96 @@
+# Cursor Rule File for Resume Builder
+Version: 1.1
+
+## ✦ STRUCTURE CONSTRAINTS
+
+### Experience Section
+- Limit to **3 entries max**
+- Each entry may have up to **3 bullet points**
+- Each bullet point must be **≤ 160 characters**
+- Only **1 new bullet point** may be added per entry
+
+### Projects Section
+- Limit to **1 project entry**
+- Each project must contain **2–3 bullet points**
+- Each bullet point must be **≤ 140 characters**
+
+---
+
+## ✦ MODIFICATION RULES
+
+### Experience
+- ✅ Allowed: Replace one bullet point per entry, modify bullet point content
+- ❌ Forbidden: Add/remove entries, change number of bullet points, add new bullet points, modify entire entry
+- Strategy: Identify least relevant bullet for replacement and preserve original structure
+
+### Projects
+- ✅ Allowed: Full rewrite of a project, change tech stack, rewrite bullet point content, swap project
+- ❌ Forbidden: Add or remove project entries, change bullet point count
+
+### Skills
+- ✅ Allowed: Add, remove, or reorder skills
+- ❌ Forbidden: Change skill categories
+
+---
+
+## ✦ BULLET POINT FORMAT
+
+- Required format:
+  > Used **{technology_tools}** to **{specific_function}** by **{technical_implementation}**, resulting in **{quantified_result}**
+
+- Each bullet must include:
+  - Technology/tools used (bolded)
+  - Specific function or task
+  - Technical implementation (how)
+  - Quantified result (bolded)
+
+- Style Guide:
+  - Be specific and technical
+  - Use impact metrics
+  - Avoid generic statements
+  - Function format: “specific action + specific feature/problem”
+  - Implementation format: “specific technical method + outcome”
+
+- Preferred Verbs:
+  - Leadership: drove, led, mentored, managed
+  - Initiative: initiated, established, founded, proactively engaged
+  - Learning: quickly familiarized, successfully developed
+  - Improvement: enhanced, refactored, successfully improved
+
+- Avoid Verbs:
+  - work, build, balanced, monitored, modernized
+
+---
+
+## ✦ CAREER PERSONA
+
+- Role: Recent graduate
+- Traits: Enthusiastic, proactive, quick learner, tech-savvy
+- Emphasis on:
+  - Passion for technology
+  - Eagerness to learn
+  - Project-driven accomplishments
+  - Industry interest
+
+- Tone:
+  - Experience: learning and growth
+  - Projects: innovation and impact
+  - Skills: current and relevant
+
+- Content must:
+  - Highlight learning
+  - Show initiative
+  - Demonstrate adaptability
+  - Emphasize technical growth
+
+---
+
+## ✦ ATS OPTIMIZATION
+
+- Hard Skills:
+  - Must fully match job description
+  - Match threshold: 100%
+
+- Soft Skills:
+  - Matching optional
+  - Preferred location: experience bullet points
