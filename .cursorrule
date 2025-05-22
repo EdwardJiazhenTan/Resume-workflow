@@ -1,11 +1,16 @@
 # Cursor Rule File for Resume Builder
 Version: 1.1
 
+## ✦ BRANCH NAMING CONVENTION
+- Format: {role_type}/{company_name}/{key-technologies}
+- Example: frontend/amazon/react-nodejs-aws
+- Role types: frontend, backend, fullstack, data, devops
+
 ## ✦ STRUCTURE CONSTRAINTS
 
 ### Experience Section
 - Limit to **3 entries max**
-- Each entry may have up to **3 bullet points**
+- Each entry must have **3-4 bullet points**
 - Each bullet point must be **≤ 160 characters**
 - Only **1 new bullet point** may be added per entry
 
@@ -14,7 +19,21 @@ Version: 1.1
 - Each project must contain **2–3 bullet points**
 - Each bullet point must be **≤ 140 characters**
 
----
+## ✦ BULLET POINT COUNT
+- Maximum 4 bullet points per experience entry
+- Minimum 3 bullet points per experience entry
+- Prefer merging similar points over having redundant information
+
+## ✦ BULLET POINT PRIORITY
+1. Core project/achievement
+2. Technical implementation
+3. Infrastructure/DevOps
+4. Quantifiable results
+
+## ✦ KEYWORD OPTIMIZATION
+- Maintain a balance between original work description and role-specific keywords
+- When adding new technologies, prioritize those mentioned in job description
+- Keep original project context while enhancing technical details
 
 ## ✦ MODIFICATION RULES
 
@@ -48,8 +67,8 @@ Version: 1.1
   - Be specific and technical
   - Use impact metrics
   - Avoid generic statements
-  - Function format: “specific action + specific feature/problem”
-  - Implementation format: “specific technical method + outcome”
+  - Function format: "specific action + specific feature/problem"
+  - Implementation format: "specific technical method + outcome"
 
 - Preferred Verbs:
   - Leadership: drove, led, mentored, managed
